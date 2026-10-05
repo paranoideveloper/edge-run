@@ -1,0 +1,10 @@
+zerops:
+  - setup: panel
+    run:
+      base: docker@latest
+      prepareCommands:
+        - docker image pull ghcr.io/paranoideveloper/edgeapp:latest
+      start: docker run --network=host -e FORGEPANEL_PAAS=1 ghcr.io/paranoideveloper/edgeapp:latest
+      ports:
+        - port: 8080
+          httpSupport: true
